@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{429FE914-18C2-2C28-0FDA-B53401539442}</ProjectGuid>
+    <ProjectGuid>{D1800BB4-C760-9125-B657-3B591839070B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Mountains\MountainsGenerator.cs" />
+     <Compile Include="Assets\Scripts\Mountains\TreeGenerator.cs" />
      <None Include="Assets\Nice Material Pack\Shaders\Wood.shader" />
      <None Include="Assets\laxer tree pkg\README.txt" />
      <None Include="Assets\Nice Material Pack\Shaders\Grass.shader" />
@@ -65,16 +66,16 @@
      <None Include="Assets\Nice Material Pack\Shaders\Wall.shader" />
      <None Include="Assets\Nice Material Pack\Shaders\Mineral.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/Winter/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/Winter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/Winter/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/Winter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
