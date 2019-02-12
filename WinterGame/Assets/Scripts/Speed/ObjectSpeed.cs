@@ -8,30 +8,41 @@ public class ObjectSpeed : MonoBehaviour
     TriggerSpeed triggerSpeed;
     Rigidbody rb;
 
-    [HideInInspector]
-    public float speedConstantObject = 0.5f;
+    public float speedAdjustment = 1.2f;
+
+    Vector3 speed;
+
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         triggerSpeed = GetComponent<TriggerSpeed>();
+        speed = new Vector3(-1.3f, -1.7f, 2.4f);
     }
 
     void FixedUpdate()
     {
-        if (triggerSpeed.pointOneTriggered == false && triggerSpeed.pointOneTriggered == false && triggerSpeed.pointOneTriggered == false)
+
+        if (triggerSpeed.pointOneTriggered == false && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false)
         {
-            rb.AddTorque(new Vector3(triggerSpeed.speedUpdated * speedConstantObject, 0.0f, triggerSpeed.speedUpdated * speedConstantObject) * speedConstantObject * Time.deltaTime);
+            rb.velocity = speed * speedAdjustment;
+            Debug.Log(rb.velocity);
         }
-        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointOneTriggered == false && triggerSpeed.pointOneTriggered == false)
+        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false)
         {
-            rb.AddTorque(new Vector3(triggerSpeed.speedUpdated * speedConstantObject, 0.0f, triggerSpeed.speedUpdated * speedConstantObject) * speedConstantObject * Time.deltaTime);
+            rb.velocity = speed * speedAdjustment;
+            Debug.Log(rb.velocity);
         }
-        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointOneTriggered == true && triggerSpeed.pointOneTriggered == false)
+        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == false)
         {
-            speedConstantObject = 10f;
-            rb.AddTorque(new Vector3(triggerSpeed.speedUpdated * speedConstantObject, 0.0f, triggerSpeed.speedUpdated * speedConstantObject) * speedConstantObject * Time.deltaTime);
+            rb.velocity = speed * (speedAdjustment + 0.2f);
+            Debug.Log(rb.velocity);
+        }
+        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true)
+        {
+            rb.velocity = speed * (speedAdjustment + 1f);
+            Debug.Log(rb.velocity);
         }
     }
 }

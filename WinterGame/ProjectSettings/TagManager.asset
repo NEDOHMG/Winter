@@ -9,6 +9,7 @@ TagManager:
   - PointTwo
   - PointThree
   - PointFour
+  - RotatePointOne
   layers:
   - Default
   - TransparentFX
