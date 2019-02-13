@@ -26,23 +26,19 @@ public class ObjectSpeed : MonoBehaviour
 
         if (triggerSpeed.pointOneTriggered == false && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false)
         {
-            rb.velocity = speed * speedAdjustment;
-            Debug.Log(rb.velocity);
+            rb.velocity = speed * speedAdjustment;          
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false)
         {
-            rb.velocity = speed * speedAdjustment;
-            Debug.Log(rb.velocity);
+            rb.velocity = speed * speedAdjustment;           
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == false)
         {
-            rb.velocity = speed * (speedAdjustment + 0.2f);
-            Debug.Log(rb.velocity);
+            rb.velocity = speed * (speedAdjustment + 0.2f);          
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true)
         {
-            rb.velocity = speed * (speedAdjustment + 1f);
-            Debug.Log(rb.velocity);
+            rb.velocity = speed * (speedAdjustment + 1f);          
         }
     }
 }

@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Rotations\RotationPointOne.cs" />
      <Compile Include="Assets\Scripts\Speed\ObjectSpeed.cs" />
      <Compile Include="Assets\Scripts\Speed\TriggerSpeed.cs" />
+     <Compile Include="Assets\Scripts\Trees\ThreeSpawn.cs" />
      <None Include="Assets\Nice Material Pack\Shaders\Wood.shader" />
      <None Include="Assets\laxer tree pkg\README.txt" />
      <None Include="Assets\Nice Material Pack\Shaders\Grass.shader" />

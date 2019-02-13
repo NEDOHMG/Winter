@@ -10,6 +10,8 @@ TagManager:
   - PointThree
   - PointFour
   - RotatePointOne
+  - RotatePointTwo
+  - PlayerCamera
   layers:
   - Default
   - TransparentFX

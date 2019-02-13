@@ -5,14 +5,17 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public GameObject target;
-    public float xOffset = 0.0f;
     public float yOffset = 0.32f;
-    public float zOffset = 0.0f;
-    public bool lookAt = false;
+
+    [HideInInspector]
+    public float xOffset = 0.0f, zOffset = 0.0f;
     private Vector3 totalOffSet;
 
-	// Use this for initialization
-	void Start ()
+    [HideInInspector]
+    public bool lookAt = true;
+
+    // Use this for initialization
+    void Start ()
     {
         totalOffSet = new Vector3(xOffset, yOffset, zOffset);
     }
