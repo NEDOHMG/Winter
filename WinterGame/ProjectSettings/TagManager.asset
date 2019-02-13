@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - RotationPointOne
   - PointOne
   - PointTwo
   - PointThree
@@ -12,6 +11,11 @@ TagManager:
   - RotatePointOne
   - RotatePointTwo
   - PlayerCamera
+  - Goal
+  - RotatePointThree
+  - RotatePointFour
+  - RotatePointFive
+  - RotatePointSix
   layers:
   - Default
   - TransparentFX

@@ -6,39 +6,52 @@ public class ObjectSpeed : MonoBehaviour
 {
 
     TriggerSpeed triggerSpeed;
-    Rigidbody rb;
+    public Rigidbody rb;
 
-    public float speedAdjustment = 1.2f;
+    public float speedAdjustmentAceleration = 0.7f;
 
     Vector3 speed;
+    Vector3 desVec;
 
 
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        // rb = GetComponent<Rigidbody>();
         triggerSpeed = GetComponent<TriggerSpeed>();
         speed = new Vector3(-1.3f, -1.7f, 2.4f);
+        //desVec = speed = new Vector3(speedAdjustmentDesaceleration, speedAdjustmentDesaceleration, speedAdjustmentDesaceleration);
     }
 
     void FixedUpdate()
     {
+        if(triggerSpeed.stop)
+        {
+            rb.velocity = Vector3.zero;
+            rb.useGravity = false;
+            rb.mass = 0.0f;
+        }
 
-        if (triggerSpeed.pointOneTriggered == false && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false)
+        if (triggerSpeed.pointOneTriggered == false && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * speedAdjustment;          
+            rb.velocity = speed * speedAdjustmentAceleration;
         }
-        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false)
+        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * speedAdjustment;           
+            rb.velocity = speed * (speedAdjustmentAceleration + 0.2f);
         }
-        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == false)
+        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * (speedAdjustment + 0.2f);          
+            rb.velocity = speed * (speedAdjustmentAceleration + 0.1f);
         }
-        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true)
+        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * (speedAdjustment + 1f);          
+            rb.velocity = speed * speedAdjustmentAceleration;
+        }
+        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == true)
+        {
+            //speedAdjustmentAceleration = 0.2f;
+            //rb.velocity = speed * speedAdjustmentAceleration;
         }
     }
 }

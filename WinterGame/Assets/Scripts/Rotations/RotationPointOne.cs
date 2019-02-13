@@ -5,34 +5,44 @@ using UnityEngine;
 public class RotationPointOne : MonoBehaviour
 {
 
-    public Rigidbody rb;
+    Rigidbody rb;
 
-    GameObject playerCamera;
-    CameraController cameraController;
+    public float rotationXPoint = 0.05f;
+    public float rotationZPoint = 0.1f;
 
-    public float rotationXPoint = 0.01f;
-    public float rotationZPoint = 0.5f;
+    [HideInInspector]
+    public bool cameraRotation;
 
-    bool _rotate = true;
+    float speedAceleration = 1.3f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera");
-        cameraController = playerCamera.GetComponent<CameraController>();
-
     }
 
     public void OnTriggerStay(Collider collider)
     {
-        if (collider.gameObject.CompareTag("RotatePointOne") && _rotate == true)
+        if (collider.gameObject.CompareTag("RotatePointOne"))
         {
+            Debug.Log("rotateOne");
             rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
-            _rotate = false;
         }
-        else if (collider.gameObject.CompareTag("RotatePointTwo") && _rotate == false)
+        else if (collider.gameObject.CompareTag("RotatePointTwo"))
         {
+            Debug.Log("rotateTwo");
+            cameraRotation = true;
             rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
+        }
+        else if (collider.gameObject.CompareTag("RotatePointThree"))
+        {
+            Debug.Log("rotateThree");
+            rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
+        }
+        else if (collider.gameObject.CompareTag("RotatePointFour"))
+        {
+            Debug.Log("rotateFour");
+            speedAceleration = speedAceleration + 0.02f;
+            rb.AddForce(rotationXPoint * speedAceleration, 0, rotationZPoint * speedAceleration * Time.deltaTime, ForceMode.Impulse);
         }
     }
 }
