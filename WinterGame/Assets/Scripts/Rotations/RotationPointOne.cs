@@ -11,7 +11,7 @@ public class RotationPointOne : MonoBehaviour
     public float rotationZPoint = 0.1f;
 
     [HideInInspector]
-    public bool cameraRotation;
+    public bool cameraRotationX = false, cameraFieldView = false;
 
     float speedAceleration = 1.3f;
 
@@ -24,23 +24,24 @@ public class RotationPointOne : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("RotatePointOne"))
         {
-            Debug.Log("rotateOne");
+            // Debug.Log("rotateOne");
+            cameraRotationX = true;
             rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointTwo"))
         {
-            Debug.Log("rotateTwo");
-            cameraRotation = true;
+            //Debug.Log("rotateTwo");
             rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointThree"))
         {
-            Debug.Log("rotateThree");
+            //Debug.Log("rotateThree");
             rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointFour"))
         {
-            Debug.Log("rotateFour");
+            //Debug.Log("rotateFour");
+            cameraFieldView = true;
             speedAceleration = speedAceleration + 0.02f;
             rb.AddForce(rotationXPoint * speedAceleration, 0, rotationZPoint * speedAceleration * Time.deltaTime, ForceMode.Impulse);
         }

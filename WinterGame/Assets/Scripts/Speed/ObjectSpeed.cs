@@ -38,11 +38,11 @@ public class ObjectSpeed : MonoBehaviour
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * (speedAdjustmentAceleration + 0.2f);
+            rb.velocity = speed * (speedAdjustmentAceleration + 0.1f);
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * (speedAdjustmentAceleration + 0.1f);
+            rb.velocity = speed * (speedAdjustmentAceleration + 0.05f);
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == false)
         {

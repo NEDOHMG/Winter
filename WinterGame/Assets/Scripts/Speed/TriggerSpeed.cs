@@ -13,22 +13,22 @@ public class TriggerSpeed : MonoBehaviour
         // This is the normal state of the game before enter in any trigger
         if (collider.gameObject.CompareTag("PointOne") && pointOneTriggered == false && pointTwoTriggered == false && pointThreeTriggered == false && goal == false)
         {
-            Debug.Log("beginning");
+            //Debug.Log("beginning");
             pointOneTriggered = true;
         }
         else if (collider.gameObject.CompareTag("PointTwo") && pointOneTriggered == true && pointTwoTriggered == false && pointThreeTriggered == false && goal == false)
         {
-            Debug.Log("two");
+            //Debug.Log("two");
             pointTwoTriggered = true;
         }
         else if (collider.gameObject.CompareTag("PointThree") && pointOneTriggered == true && pointTwoTriggered == true && pointThreeTriggered == false && goal == false)
         {
-            Debug.Log("three");
+            //Debug.Log("three");
             pointThreeTriggered = true;
         }
         else if (collider.gameObject.CompareTag("Goal") && pointOneTriggered == true && pointTwoTriggered == true && pointThreeTriggered == true && goal == false)
         {
-            Debug.Log("goal");
+            //Debug.Log("goal");
             goal = true;
         }
     }
