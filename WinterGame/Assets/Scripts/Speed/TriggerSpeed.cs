@@ -6,7 +6,7 @@ public class TriggerSpeed : MonoBehaviour
 {
 
     [HideInInspector]
-    public bool pointOneTriggered = false, pointTwoTriggered = false, pointThreeTriggered = false, goal = false, stop = false;
+    public bool pointOneTriggered = false, pointTwoTriggered = false, pointThreeTriggered = false, goal = false, stop = false, speedAcelerator = false;
 
     public void OnTriggerEnter(Collider collider)
     {
@@ -29,15 +29,24 @@ public class TriggerSpeed : MonoBehaviour
         else if (collider.gameObject.CompareTag("Goal") && pointOneTriggered == true && pointTwoTriggered == true && pointThreeTriggered == true && goal == false)
         {
             //Debug.Log("goal");
+            speedAcelerator = false;
             goal = true;
+        }
+    }
+
+    public void OnTriggerStay(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("RotatePointFour"))
+        {
+            speedAcelerator = true;
         }
     }
 
     public void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject.CompareTag("Goal") && pointOneTriggered == true && pointTwoTriggered == true && pointThreeTriggered == true && goal == true)
+        if (collider.gameObject.CompareTag("Goal"))
         {
-            Debug.Log("Stop");
+            //Debug.Log("Stop");
             stop = true;
         }
     }

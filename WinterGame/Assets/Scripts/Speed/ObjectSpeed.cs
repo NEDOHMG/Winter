@@ -6,10 +6,15 @@ public class ObjectSpeed : MonoBehaviour
 {
     const float x = -1.3f, y = -1.7f, z = 2.4f;
 
-    TriggerSpeed triggerSpeed;
     public Rigidbody rb;
 
-    public float speedAdjustmentAceleration = 0.7f;
+    TriggerSpeed triggerSpeed;
+    PlayerJump playerJump;
+
+    GameObject ramp;
+    RampGenerator rampGenerator;
+
+    public float speedAdjustmentAceleration = 0.4f;
 
     Vector3 speed;
     Vector3 desVec;
@@ -18,15 +23,18 @@ public class ObjectSpeed : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // rb = GetComponent<Rigidbody>();
         triggerSpeed = GetComponent<TriggerSpeed>();
+        playerJump = GetComponent<PlayerJump>();
+
+        ramp = GameObject.Find("RampSpotGenerator");
+        rampGenerator = ramp.GetComponent<RampGenerator>();
+
         speed = new Vector3(x, y, z);
-        //desVec = speed = new Vector3(speedAdjustmentDesaceleration, speedAdjustmentDesaceleration, speedAdjustmentDesaceleration);
     }
 
     void FixedUpdate()
     {
-        if(triggerSpeed.stop)
+        if (triggerSpeed.stop)
         {
             rb.velocity = Vector3.zero;
             rb.useGravity = false;
@@ -43,7 +51,20 @@ public class ObjectSpeed : MonoBehaviour
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
+            if (rampGenerator.levelOne)
+            {
+                speedAdjustmentAceleration = 0.5f;
+                // rb.AddForce(rotationXPoint * speedAceleration, 0, rotationZPoint * speedAceleration * Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(0.05f * 1.3f, 0, 0.1f * 1.3f, ForceMode.Impulse);
+                rb.velocity = speed * (speedAdjustmentAceleration + 0.12f);
+            }
             rb.velocity = speed * (speedAdjustmentAceleration + 0.05f);
+        }
+        else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == false && triggerSpeed.speedAcelerator == true && playerJump.jump == true)
+        {
+
+            rb.velocity = speed * (speedAdjustmentAceleration + 0.12f);
+
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == false)
         {
@@ -51,8 +72,7 @@ public class ObjectSpeed : MonoBehaviour
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == true)
         {
-            //speedAdjustmentAceleration = 0.2f;
-            //rb.velocity = speed * speedAdjustmentAceleration;
+            // It will start to desacelerate
         }
     }
 }

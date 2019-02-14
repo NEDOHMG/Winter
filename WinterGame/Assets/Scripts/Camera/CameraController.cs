@@ -9,11 +9,18 @@ public class CameraController : MonoBehaviour
     public float yOffset = 0.32f;
 
     GameObject startPoint;
-    RotationPointOne rotationPointOne;
+    CameraTriggerRotations cameraTriggerRotations;
+
+    GameObject ramp;
+    RampGenerator rampGenerator;
+
     Vector3 originalRotation;
     Vector3 rotateValue;
     bool lookAt = false;
-    float i = 0.01f;
+    float xi = 0.01f;
+    float yi;
+    float zi;
+
 
 
     [HideInInspector]
@@ -29,11 +36,14 @@ public class CameraController : MonoBehaviour
     {
         totalOffSet = new Vector3(xOffset, yOffset, zOffset);
         startPoint = GameObject.FindGameObjectWithTag("Player");
-        rotationPointOne = startPoint.GetComponent<RotationPointOne>();
+        cameraTriggerRotations = startPoint.GetComponent<CameraTriggerRotations>();
         originalRotation = transform.rotation.eulerAngles;
         rotateValue = originalRotation;
         _camera = GetComponent<Camera>();
         _camera.fieldOfView = 20f;
+
+        ramp = GameObject.Find("RampSpotGenerator");
+        rampGenerator = ramp.GetComponent<RampGenerator>();
     }
 
     // Update is called once per frame
@@ -41,21 +51,50 @@ public class CameraController : MonoBehaviour
     {
         transform.position = target.transform.position + totalOffSet;
 
-        if (rotationPointOne.cameraRotationX == true)
+        if (cameraTriggerRotations.cameraRotationX == true)
         {
-            i += 0.06f;
+            xi += 0.025f;
+
+            if (rotateValue.y < 364.0f && cameraTriggerRotations.cameraRotationY == true)
+            {
+                yi += 0.03f;
+                rotateValue.y = originalRotation.y + yi;
+            }
+            else if (rotateValue.y > 364.0f && cameraTriggerRotations.cameraRotationY == false)
+            {
+          
+                rotateValue.y = 364.30f;
+            }
+
+            if (rotateValue.z <= 360f && cameraTriggerRotations.cameraRotationZ == true)
+            {
+                zi += 0.001f;
+            }
+            else
+            {
+                zi = 0;
+            }
+
             if (rotateValue.x > -5.9f)
             {
-                rotateValue = new Vector3(originalRotation.x - i, originalRotation.y, originalRotation.z);
+                //Debug.Log("x: " + rotateValue.x + " y: " + rotateValue.y + " z: " + rotateValue.z);
+                rotateValue.x = originalRotation.x - xi;
+                // rotateValue.y = originalRotation.y + yi;
+                rotateValue.z = originalRotation.z + zi;
                 transform.eulerAngles = rotateValue;
             }
         }
 
-        if (rotationPointOne.cameraFieldView== true)
+        if (cameraTriggerRotations.cameraFieldView == true)
         {
-            if (_camera.fieldOfView < 65)
+
+            if(rampGenerator.levelOne == true && _camera.fieldOfView < 65)
             {
-                _camera.fieldOfView += 0.08f;
+                _camera.fieldOfView += 0.05f;
+            }
+            else if (_camera.fieldOfView < 65)
+            {
+                _camera.fieldOfView += 0.02f;
             }
         }
 
