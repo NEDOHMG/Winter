@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectSpeed : MonoBehaviour
 {
+    const float x = -1.3f, y = -1.7f, z = 2.4f;
 
     TriggerSpeed triggerSpeed;
     public Rigidbody rb;
@@ -19,7 +20,7 @@ public class ObjectSpeed : MonoBehaviour
     {
         // rb = GetComponent<Rigidbody>();
         triggerSpeed = GetComponent<TriggerSpeed>();
-        speed = new Vector3(-1.3f, -1.7f, 2.4f);
+        speed = new Vector3(x, y, z);
         //desVec = speed = new Vector3(speedAdjustmentDesaceleration, speedAdjustmentDesaceleration, speedAdjustmentDesaceleration);
     }
 

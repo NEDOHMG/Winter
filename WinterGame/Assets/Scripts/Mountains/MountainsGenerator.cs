@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MountainsGenerator : MonoBehaviour
 {
+    const float x = -439.011f, y = 23.75f, z = 253.5f;
 
     public GameObject mountainsPrefab;
     private GameObject mountains;
 
     void Awake()
     {
-        GenerateMountains(-439.011f, 23.75f, 253.5f);
+        GenerateMountains(x, y, z);
     }
 
 

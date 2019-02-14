@@ -16,6 +16,7 @@ TagManager:
   - RotatePointFour
   - RotatePointFive
   - RotatePointSix
+  - Ramp
   layers:
   - Default
   - TransparentFX

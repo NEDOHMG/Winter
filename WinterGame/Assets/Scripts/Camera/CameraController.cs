@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
     private Vector3 totalOffSet;
 
     //This is the field of view that the Camera has
-    Camera camera;
+    Camera _camera;
 
     // Use this for initialization
     void Start()
@@ -32,8 +32,8 @@ public class CameraController : MonoBehaviour
         rotationPointOne = startPoint.GetComponent<RotationPointOne>();
         originalRotation = transform.rotation.eulerAngles;
         rotateValue = originalRotation;
-        camera = GetComponent<Camera>();
-        camera.fieldOfView = 20f;
+        _camera = GetComponent<Camera>();
+        _camera.fieldOfView = 20f;
     }
 
     // Update is called once per frame
@@ -44,9 +44,7 @@ public class CameraController : MonoBehaviour
         if (rotationPointOne.cameraRotationX == true)
         {
             i += 0.06f;
-            // Debug.Log("Change the angle");
-            // Debug.Log(originalRotation);
-            if (rotateValue.x > -1.7f)
+            if (rotateValue.x > -5.9f)
             {
                 rotateValue = new Vector3(originalRotation.x - i, originalRotation.y, originalRotation.z);
                 transform.eulerAngles = rotateValue;
@@ -55,10 +53,9 @@ public class CameraController : MonoBehaviour
 
         if (rotationPointOne.cameraFieldView== true)
         {
-            Debug.Log("Enter");
-            if (camera.fieldOfView < 65)
+            if (_camera.fieldOfView < 65)
             {
-                camera.fieldOfView += 0.08f;
+                _camera.fieldOfView += 0.08f;
             }
         }
 
