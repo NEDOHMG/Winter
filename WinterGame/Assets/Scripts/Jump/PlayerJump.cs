@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ImpulseLevel
-{
-    one, two, three, four, five
-};
+//public enum ImpulseLevel
+//{
+//    one, two, three, four, five
+//};
 
 
 public class PlayerJump : MonoBehaviour
@@ -13,15 +13,23 @@ public class PlayerJump : MonoBehaviour
 
     Rigidbody rb;
 
-    // Actual SerialPort
-    public ImpulseLevel impulseLevel = ImpulseLevel.two;
+    // Actual impulse level
+    //public ImpulseLevel impulseLevel = ImpulseLevel.two;
 
     private float impulse = 0.09f;
-    bool firstJump = true;
+    [HideInInspector]
+    public bool firstJump = true;
     float _impulseJump;
 
     [HideInInspector]
     public bool jump = false;
+
+    public static PlayerJump sharedInstance;
+
+    void Awake()
+    {
+        sharedInstance = this;
+    }
 
     void Start()
     {
@@ -34,6 +42,7 @@ public class PlayerJump : MonoBehaviour
         {
             UserJump(impulse);
         }
+
     }
 
     float ChooseSpeed(ImpulseLevel _impulseLevel)
@@ -79,7 +88,7 @@ public class PlayerJump : MonoBehaviour
             }
             else
             {
-                impulse = ChooseSpeed(impulseLevel);
+                impulse = ChooseSpeed(PlayerSkiController.sharedInstance.impulseLevel);
             }
         }
         else

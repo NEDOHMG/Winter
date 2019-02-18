@@ -14,10 +14,24 @@ public class ObjectSpeed : MonoBehaviour
     GameObject ramp;
     RampGenerator rampGenerator;
 
-    public float speedAdjustmentAceleration = 0.4f;
+    //public float speedAdjustmentAceleration = 0.4f;
 
     Vector3 speed;
     Vector3 desVec;
+
+    //[HideInInspector]
+    //public bool firstTimePlay = true;
+
+    public static ObjectSpeed sharedInstance;
+
+    [HideInInspector]
+    Vector3 originalPosition;
+
+
+    void Awake()
+    {
+        sharedInstance = this;
+    }
 
     // Use this for initialization
     void Start()
@@ -30,45 +44,52 @@ public class ObjectSpeed : MonoBehaviour
 
         speed = new Vector3(x, y, z);
 
+        originalPosition = transform.position;
+    }
+
+    public void ResetPositionSpeedUser()
+    {
+        rb.isKinematic = true;
+        transform.position = originalPosition;
+        speed = new Vector3(x, y, z);
     }
 
     public void InTheGame()
     {
         if (triggerSpeed.stop)
         {
-            rb.velocity = Vector3.zero;
-            rb.useGravity = false;
-            rb.mass = 0.0f;
+            // Debug.Log("The game is stoped");
+            rb.isKinematic = true; // Stop all the movement of the user
         }
 
         if (triggerSpeed.pointOneTriggered == false && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * speedAdjustmentAceleration;
+            rb.velocity = speed * PlayerSkiController.sharedInstance.speedAdjustmentAceleration;
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == false && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * (speedAdjustmentAceleration + 0.1f);
+            rb.velocity = speed * (PlayerSkiController.sharedInstance.speedAdjustmentAceleration + 0.1f);
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == false && triggerSpeed.goal == false)
         {
             if (rampGenerator.levelOne)
             {
-                speedAdjustmentAceleration = 0.5f;
+                PlayerSkiController.sharedInstance.speedAdjustmentAceleration = 0.5f;
                 // rb.AddForce(rotationXPoint * speedAceleration, 0, rotationZPoint * speedAceleration * Time.deltaTime, ForceMode.Impulse);
                 rb.AddForce(0.05f * 1.3f, 0, 0.1f * 1.3f, ForceMode.Impulse);
-                rb.velocity = speed * (speedAdjustmentAceleration + 0.12f);
+                rb.velocity = speed * (PlayerSkiController.sharedInstance.speedAdjustmentAceleration + 0.12f);
             }
-            rb.velocity = speed * (speedAdjustmentAceleration + 0.05f);
+            rb.velocity = speed * (PlayerSkiController.sharedInstance.speedAdjustmentAceleration + 0.05f);
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == false && triggerSpeed.speedAcelerator == true && playerJump.jump == true)
         {
 
-            rb.velocity = speed * (speedAdjustmentAceleration + 0.12f);
+            rb.velocity = speed * (PlayerSkiController.sharedInstance.speedAdjustmentAceleration + 0.12f);
 
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == false)
         {
-            rb.velocity = speed * speedAdjustmentAceleration;
+            rb.velocity = speed * PlayerSkiController.sharedInstance.speedAdjustmentAceleration;
         }
         else if (triggerSpeed.pointOneTriggered == true && triggerSpeed.pointTwoTriggered == true && triggerSpeed.pointThreeTriggered == true && triggerSpeed.goal == true)
         {
@@ -78,10 +99,12 @@ public class ObjectSpeed : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PlayerSkiController.sharedInstance.StartGame)
+        if (PlayerSkiController.sharedInstance.startGame)
         {
-            rb.isKinematic = false;
+            // Debug.Log("Start the game is false");
+            rb.isKinematic = false; // Check if we are in the game
         }
+        // We are in the game
         InTheGame();
     }
 

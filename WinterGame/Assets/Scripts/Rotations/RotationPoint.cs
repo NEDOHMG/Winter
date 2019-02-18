@@ -7,13 +7,21 @@ public class RotationPoint : MonoBehaviour
 
     Rigidbody rb;
 
-    public float rotationXPoint = 0.05f;
-    public float rotationZPoint = 0.1f;
+    //public float rotationXPoint = 0.05f;
+    //public float rotationZPoint = 0.1f;
 
     //[HideInInspector]
     //public bool cameraRotationX = false, cameraFieldView = false;
 
-    float speedAceleration = 1.3f;
+    [HideInInspector]
+    public float speedAceleration = 1.3f;
+
+    public static RotationPoint sharedInstance;
+
+    void Awake()
+    {
+        sharedInstance = this;
+    }
 
     void Start()
     {
@@ -26,24 +34,24 @@ public class RotationPoint : MonoBehaviour
         {
             // Debug.Log("rotateOne");
             //cameraRotationX = true;
-            rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
+            rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint, 0, PlayerSkiController.sharedInstance.rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointTwo"))
         {
             //Debug.Log("rotateTwo");
-            rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
+            rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint, 0, PlayerSkiController.sharedInstance.rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointThree"))
         {
             //Debug.Log("rotateThree");
-            rb.AddForce(rotationXPoint, 0, rotationZPoint, ForceMode.Impulse);
+            rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint, 0, PlayerSkiController.sharedInstance.rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointFour"))
         {
             //Debug.Log("rotateFour");
             //cameraFieldView = true;
             speedAceleration = speedAceleration + 0.02f;
-            rb.AddForce(rotationXPoint * speedAceleration, 0, rotationZPoint * speedAceleration * Time.deltaTime, ForceMode.Impulse);
+            rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint * speedAceleration, 0, PlayerSkiController.sharedInstance.rotationZPoint * speedAceleration * Time.deltaTime, ForceMode.Impulse);
         }
     }
 }

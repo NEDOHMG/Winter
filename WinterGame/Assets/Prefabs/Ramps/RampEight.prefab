@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3346054033817299020}
   - component: {fileID: 3608463722320662157}
   - component: {fileID: 4855076234523836724}
+  - component: {fileID: 8769944303859865628}
   m_Layer: 0
   m_Name: RampEight
   m_TagString: Ramp
@@ -106,3 +107,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: b9d7ac1a0f551404f8d32e1e02b64325, type: 3}
+--- !u!114 &8769944303859865628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5441443247168014865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591b586cd089e06468c14819d199faf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

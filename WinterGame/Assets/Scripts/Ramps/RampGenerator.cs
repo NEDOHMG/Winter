@@ -3,32 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum LevelRampsGenerator
-{ levelOne, levelTwo, levelThree, levelFour };
+//public enum LevelRampsGenerator
+//{ levelOne, levelTwo, levelThree, levelFour };
 
 
 public class RampGenerator : MonoBehaviour
 {
-    public GameObject[] ramps = new GameObject[8];
-    public LevelRampsGenerator gameDifficulty = LevelRampsGenerator.levelOne;
+    public List<RampBlock> allTheRamps = new List<RampBlock>(); // List that contain all the levels
+    public List<RampBlock> currentRamps = new List<RampBlock>(); // List of the blocks that are currently displaying
 
-    List<int> randomValues = new List<int>();
+    // public GameObject[] ramps = new GameObject[8];
+    //public LevelRampsGenerator gameDifficulty = LevelRampsGenerator.levelOne;
 
-    GameObject ramp;
+    List<int> randomValues;
+
+    // GameObject ramp;
 
     [HideInInspector]
     public bool levelOne = false;
 
     int level;
 
-    private void Start()
+    public static RampGenerator sharedInstance;
+
+    void Awake()
     {
-        SpawnRamps();
+        sharedInstance = this;
     }
 
-    void SpawnRamps()
+    private void Start()
     {
-        level = LevelDifficultSetup(gameDifficulty);
+        // SpawnRamps();
+    }
+
+    public void SpawnRamps()
+    {
+        level = LevelDifficultSetup(PlayerSkiController.sharedInstance.gameDifficulty);
         if(level == 1)
         {
             levelOne = true;
@@ -63,11 +73,13 @@ public class RampGenerator : MonoBehaviour
 
     void GetNonRepeatRandom()
     {
-        int lastRandomNumber=10;
-        for (int i = 0; i < ramps.Length;)
+        int lastRandomNumber = 10;
+        randomValues = new List<int>();
+
+        for (int i = 0; i < allTheRamps.Count;)
         {
-            int rand = Random.Range(0, ramps.Length);
-            if(rand != lastRandomNumber && !randomValues.Contains(rand))
+            int rand = Random.Range(0, allTheRamps.Count);
+            if (rand != lastRandomNumber && !randomValues.Contains(rand))
             {
                 randomValues.Add(rand);
                 i++;
@@ -81,7 +93,30 @@ public class RampGenerator : MonoBehaviour
     {
         for (int i = 0; i < position; i++)
         {
-            ramp = Instantiate(ramps[randomValues[i]]) as GameObject;
+            RampBlock ramp = Instantiate(allTheRamps[randomValues[i]]);
+
+            // ramp.transform.SetParent(transform, false);
+
+            currentRamps.Add(ramp);
         }
+    }
+
+    void RemoveOldRamps()
+    {
+        // Save the old block in a new object 
+        RampBlock ramp = currentRamps[0];
+        // Remove the block from the list
+        currentRamps.Remove(ramp);
+        // Destroy the block
+        Destroy(ramp.gameObject);
+    }
+
+    public void RemoveAllTheRamps()
+    {
+        while (currentRamps.Count > 0)
+        {
+            RemoveOldRamps();
+        }
+        randomValues = new List<int>();
     }
 }

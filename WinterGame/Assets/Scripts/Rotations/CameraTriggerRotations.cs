@@ -7,6 +7,13 @@ public class CameraTriggerRotations : MonoBehaviour
     [HideInInspector]
     public bool cameraRotationX = false, cameraRotationY = false, cameraRotationZ = false, cameraFieldView = false;
 
+    public static CameraTriggerRotations sharedInstance;
+
+    void Awake()
+    {
+        sharedInstance = this;
+    }
+
     public void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("RotatePointOne"))

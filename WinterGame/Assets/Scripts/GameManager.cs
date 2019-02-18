@@ -18,8 +18,8 @@ public class GameManager : MonoBehaviour
     public static GameManager sharedInstance;
 
     public Canvas menuCanvas;
-    //public Canvas gameCanvas;
-    //public Canvas gameOverCanvas;
+    // public Canvas gameCanvas;
+    public Canvas gameOverCanvas;
 
     void Awake()
     {
@@ -30,35 +30,56 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentGameState = GameState.menu;
-        //menuCanvas.enabled = true;
+        menuCanvas.enabled = true;
         //gameCanvas.enabled = false;
-        //gameOverCanvas.enabled = false;
+        gameOverCanvas.enabled = false;
     }
 
     //void Update()
     //{
-        //if (currentGameState != GameState.inTheGame)
-        //{
-        //    if (Input.GetButtonDown("s"))
-        //    {
-        //        StartGame();
-        //    }
-        //}
+    //if (currentGameState != GameState.inTheGame)
+    //{
+    //    if (Input.GetButtonDown("s"))
+    //    {
+    //        StartGame();
+    //    }
+    //}
 
     //}
 
     // Use this for start the game
     public void StartGame()
     {
-        PlayerSkiController.sharedInstance.StartGame = true;
-        //LevelGenerator.sharedInstance.GenerateInitialBlocks();
-        ChangeGameState(GameState.inTheGame);
+        
+        if (PlayerSkiController.sharedInstance.resetPositionUser)
+        {
+            Debug.Log("Now Im here");
+            Debug.Log("The game was reseted");
+            ResetVariables.sharedInstance.ResetTheGameVariables();
+            Debug.Log("The game variables were reseted");
+            ResetLevel.sharedInstance.ResetThePlayersMethods();
+            Debug.Log("The methods variables were reseted");
+
+            RampGenerator.sharedInstance.SpawnRamps();
+
+            PlayerSkiController.sharedInstance.resetPositionUser = false;
+            ChangeGameState(GameState.inTheGame);
+        }
+        else
+        {
+            Debug.Log("Im here");
+            RampGenerator.sharedInstance.SpawnRamps();
+            PlayerSkiController.sharedInstance.startGame = true;
+            ChangeGameState(GameState.inTheGame);
+        }
     }
 
     // Called when the player dies
     public void GameOver()
     {
-        //LevelGenerator.sharedInstance.RemoveAllTheBlocks();
+        RampGenerator.sharedInstance.RemoveAllTheRamps();
+        Debug.Log("The blocks were removed");
+        PlayerSkiController.sharedInstance.resetPositionUser = true; // In case of the user reset the game
         ChangeGameState(GameState.gameOver);
     }
 
@@ -76,21 +97,21 @@ public class GameManager : MonoBehaviour
             // The logic of the principal menu
             menuCanvas.enabled = true;
             //gameCanvas.enabled = false;
-            //gameOverCanvas.enabled = false;
+            gameOverCanvas.enabled = false;
         }
         else if (newGameState == GameState.inTheGame)
         {
             // This is the current scene or level of the game
             menuCanvas.enabled = false;
             //gameCanvas.enabled = true;
-            //gameOverCanvas.enabled = false;
+            gameOverCanvas.enabled = false;
         }
         else if (newGameState == GameState.gameOver)
         {
             // Gameover
             menuCanvas.enabled = false;
             //gameCanvas.enabled = false;
-            //gameOverCanvas.enabled = true;
+            gameOverCanvas.enabled = true;
         }
 
         // This is the new state after the change 

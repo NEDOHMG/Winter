@@ -5,11 +5,23 @@ using UnityEngine;
 public class TriggerSpeed : MonoBehaviour
 {
 
+    public static TriggerSpeed sharedInstance;
+
     [HideInInspector]
     public bool pointOneTriggered = false, pointTwoTriggered = false, pointThreeTriggered = false, goal = false, stop = false, speedAcelerator = false;
 
+    void Awake()
+    {
+        sharedInstance = this;
+    }
+
     public void OnTriggerEnter(Collider collider)
     {
+        //if (collider.gameObject.CompareTag("Goal"))
+        //{
+        //    GameManager.sharedInstance.GameOver();
+        //}
+
         // This is the normal state of the game before enter in any trigger
         if (collider.gameObject.CompareTag("PointOne") && pointOneTriggered == false && pointTwoTriggered == false && pointThreeTriggered == false && goal == false)
         {
@@ -46,8 +58,10 @@ public class TriggerSpeed : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Goal"))
         {
-            //Debug.Log("Stop");
+            Debug.Log("Stop");
             stop = true;
+            GameManager.sharedInstance.GameOver();
         }
     }
+
 }
