@@ -19,7 +19,6 @@ public class ObjectSpeed : MonoBehaviour
     Vector3 speed;
     Vector3 desVec;
 
-
     // Use this for initialization
     void Start()
     {
@@ -30,9 +29,10 @@ public class ObjectSpeed : MonoBehaviour
         rampGenerator = ramp.GetComponent<RampGenerator>();
 
         speed = new Vector3(x, y, z);
+
     }
 
-    void FixedUpdate()
+    public void InTheGame()
     {
         if (triggerSpeed.stop)
         {
@@ -75,4 +75,14 @@ public class ObjectSpeed : MonoBehaviour
             // It will start to desacelerate
         }
     }
+
+    void FixedUpdate()
+    {
+        if (PlayerSkiController.sharedInstance.StartGame)
+        {
+            rb.isKinematic = false;
+        }
+        InTheGame();
+    }
+
 }
