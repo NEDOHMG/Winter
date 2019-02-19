@@ -34,7 +34,7 @@ public class ResetVariables : MonoBehaviour
         TriggerSpeed.sharedInstance.pointTwoTriggered = false;
         TriggerSpeed.sharedInstance.pointThreeTriggered = false;
         TriggerSpeed.sharedInstance.goal = false;
-        TriggerSpeed.sharedInstance.stop = false;
+        // TriggerSpeed.sharedInstance.stop = false;
         TriggerSpeed.sharedInstance.speedAcelerator = false;
     }
 }

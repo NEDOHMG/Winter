@@ -49,7 +49,7 @@ public class ObjectSpeed : MonoBehaviour
 
     public void ResetPositionSpeedUser()
     {
-        rb.isKinematic = true;
+        // rb.isKinematic = true;
         transform.position = originalPosition;
         speed = new Vector3(x, y, z);
     }
@@ -58,7 +58,7 @@ public class ObjectSpeed : MonoBehaviour
     {
         if (triggerSpeed.stop)
         {
-            // Debug.Log("The game is stoped");
+            Debug.Log("The game is stoped");
             rb.isKinematic = true; // Stop all the movement of the user
         }
 

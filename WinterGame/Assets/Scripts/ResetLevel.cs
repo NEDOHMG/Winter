@@ -15,7 +15,7 @@ public class ResetLevel : MonoBehaviour
     public void ResetThePlayersMethods()
     {
         StartCoroutine(ExecuteAfterTime(1));
-        StartCoroutine(WaitForPlayer(2));
+        StartCoroutine(WaitForPlayer(3));
     }
 
     IEnumerator ExecuteAfterTime(float time)
@@ -30,8 +30,9 @@ public class ResetLevel : MonoBehaviour
     public IEnumerator WaitForPlayer(float time)
     {
         yield return new WaitForSeconds(time);
-        ObjectSpeed.sharedInstance.rb.isKinematic = false;
+        TriggerSpeed.sharedInstance.stop = false; // This is a probe
         PlayerSkiController.sharedInstance.startGame = true;
+        ObjectSpeed.sharedInstance.rb.isKinematic = false;
     }
 
 }

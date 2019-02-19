@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8192659156271210977
+--- !u!1 &758590821427144051
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2995048763499243747}
-  - component: {fileID: 138021955473938761}
-  - component: {fileID: 1612338701707067614}
-  - component: {fileID: 7473116391494314669}
-  - component: {fileID: 2247808641265871492}
-  - component: {fileID: 2195630658004232374}
+  - component: {fileID: 1808619143578235514}
+  - component: {fileID: 6932425035389089887}
+  - component: {fileID: 5126387398163012817}
+  - component: {fileID: 5703444184354249535}
+  - component: {fileID: 2253417722698057047}
+  - component: {fileID: 3531610424737436612}
   m_Layer: 0
   m_Name: RampFour
   m_TagString: Ramp
@@ -21,35 +21,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2995048763499243747
+--- !u!4 &1808619143578235514
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8192659156271210977}
-  m_LocalRotation: {x: 0.08665305, y: -0.104753666, z: 0.07391048, w: 0.98795503}
-  m_LocalPosition: {x: -119.83574, y: 2.236, z: 66.20959}
-  m_LocalScale: {x: 0.92881, y: 0.19542, z: 0.08506}
+  m_GameObject: {fileID: 758590821427144051}
+  m_LocalRotation: {x: 0.25463134, y: -0.16238783, z: 0.07918462, w: 0.9500121}
+  m_LocalPosition: {x: -119.31399, y: 2.409, z: 66.13704}
+  m_LocalScale: {x: 1.9131627, y: 0.19542, z: 0.08506}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 10.76, y: -11.400001, z: 7.4800005}
---- !u!33 &138021955473938761
+  m_LocalEulerAnglesHint: {x: 30.632002, y: -18.162, z: 4.5160003}
+--- !u!33 &6932425035389089887
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8192659156271210977}
+  m_GameObject: {fileID: 758590821427144051}
   m_Mesh: {fileID: 4300002, guid: b9d7ac1a0f551404f8d32e1e02b64325, type: 3}
---- !u!23 &1612338701707067614
+--- !u!23 &5126387398163012817
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8192659156271210977}
+  m_GameObject: {fileID: 758590821427144051}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,40 +80,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7473116391494314669
+--- !u!64 &5703444184354249535
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8192659156271210977}
-  m_Material: {fileID: 0}
+  m_GameObject: {fileID: 758590821427144051}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: b9d7ac1a0f551404f8d32e1e02b64325, type: 3}
---- !u!65 &2247808641265871492
+--- !u!65 &2253417722698057047
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8192659156271210977}
+  m_GameObject: {fileID: 758590821427144051}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 2.6933773, z: 2.071188}
   m_Center: {x: 8.582698e-10, y: 1.3466829, z: 0.96440667}
---- !u!114 &2195630658004232374
+--- !u!114 &3531610424737436612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8192659156271210977}
+  m_GameObject: {fileID: 758590821427144051}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 591b586cd089e06468c14819d199faf1, type: 3}
