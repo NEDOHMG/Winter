@@ -8,7 +8,8 @@ public class RotationPoint : MonoBehaviour
     Rigidbody rb;
 
     [HideInInspector]
-    public float speedAceleration = 1.3f;
+    public float rotationSpeedAceleration = 1.3f;
+    // public float speedAceleration = 1.3f;
 
     public static RotationPoint sharedInstance;
 
@@ -29,29 +30,25 @@ public class RotationPoint : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("RotatePointOne"))
         {
-            Debug.Log("Rotate One");
+            // Debug.Log("Rotate One");
             rotateTrigger = true;
-            // rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint, 0, PlayerSkiController.sharedInstance.rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointTwo"))
         {
+            //Debug.Log("Rotate Two");
             rotateTrigger = true;
-            Debug.Log("Rotate Two");
-            // rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint, 0, PlayerSkiController.sharedInstance.rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointThree"))
         {
+            // Debug.Log("Rotate Three");
             rotateTrigger = true;
-            Debug.Log("Rotate Three");
-            // rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint, 0, PlayerSkiController.sharedInstance.rotationZPoint, ForceMode.Impulse);
         }
         else if (collider.gameObject.CompareTag("RotatePointFour"))
         {
+            //Debug.Log("Rotate Four");
             rotateTrigger = true;
             rotSpeedBoost = true;
-            Debug.Log("Rotate Four");
-            speedAceleration = speedAceleration + 0.02f;
-            // rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint * speedAceleration, 0, PlayerSkiController.sharedInstance.rotationZPoint * speedAceleration * Time.deltaTime, ForceMode.Impulse);
+            rotationSpeedAceleration = rotationSpeedAceleration + 0.02f;
         }
     }
 
@@ -59,23 +56,23 @@ public class RotationPoint : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("RotatePointOne"))
         {
-            Debug.Log("Rotate One Exit");
+            // Debug.Log("Rotate One Exit");
             rotateTrigger = false;
 
         }
         else if (collider.gameObject.CompareTag("RotatePointTwo"))
         {
-            Debug.Log("Rotate Two");
+            // Debug.Log("Rotate Two Exit");
             rotateTrigger = false;
         }
         else if (collider.gameObject.CompareTag("RotatePointThree"))
         {
-            Debug.Log("Rotate Three");
+            // Debug.Log("Rotate Three Exit");
             rotateTrigger = false;
         }
         else if (collider.gameObject.CompareTag("RotatePointFour"))
         {
-            Debug.Log("Rotate Four");
+            // Debug.Log("Rotate Four Exit");
             rotateTrigger = false;
             rotSpeedBoost = false;
         }
@@ -89,7 +86,7 @@ public class RotationPoint : MonoBehaviour
         }
         else if (rotateTrigger == true && rotSpeedBoost == true)
         {
-            rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint * speedAceleration, 0, PlayerSkiController.sharedInstance.rotationZPoint * speedAceleration * Time.deltaTime, ForceMode.Impulse);
+            rb.AddForce(PlayerSkiController.sharedInstance.rotationXPoint * rotationSpeedAceleration, 0, PlayerSkiController.sharedInstance.rotationZPoint * rotationSpeedAceleration * Time.deltaTime, ForceMode.Impulse);
         }
     }
 }

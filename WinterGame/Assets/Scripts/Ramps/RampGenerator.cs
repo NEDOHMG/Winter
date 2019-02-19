@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
-
-//public enum LevelRampsGenerator
-//{ levelOne, levelTwo, levelThree, levelFour };
 
 
 public class RampGenerator : MonoBehaviour
@@ -12,12 +7,7 @@ public class RampGenerator : MonoBehaviour
     public List<RampBlock> allTheRamps = new List<RampBlock>(); // List that contain all the levels
     public List<RampBlock> currentRamps = new List<RampBlock>(); // List of the blocks that are currently displaying
 
-    // public GameObject[] ramps = new GameObject[8];
-    //public LevelRampsGenerator gameDifficulty = LevelRampsGenerator.levelOne;
-
     List<int> randomValues;
-
-    // GameObject ramp;
 
     [HideInInspector]
     public bool levelOne = false;
@@ -31,15 +21,11 @@ public class RampGenerator : MonoBehaviour
         sharedInstance = this;
     }
 
-    private void Start()
-    {
-        // SpawnRamps();
-    }
-
     public void SpawnRamps()
     {
         level = LevelDifficultSetup(PlayerSkiController.sharedInstance.gameDifficulty);
-        if(level == 1)
+
+        if (level == 1)
         {
             levelOne = true;
         }
@@ -71,32 +57,54 @@ public class RampGenerator : MonoBehaviour
         return _level;
     }
 
+    // Randomize the position of the prefabs
     void GetNonRepeatRandom()
     {
         int lastRandomNumber = 10;
         randomValues = new List<int>();
-
+        int randPairOrImpair = Random.Range(0, 2);
+        
         for (int i = 0; i < allTheRamps.Count;)
         {
+
             int rand = Random.Range(0, allTheRamps.Count);
+
             if (rand != lastRandomNumber && !randomValues.Contains(rand))
             {
-                randomValues.Add(rand);
+                // Here we will add for level one just if is pair or impair to give more "space" between the prefabs 
+                if (level == 1 && randPairOrImpair == 0 && rand % 2 == 0)
+                {
+
+                    randomValues.Add(rand);
+                    // Debug.Log(rand);
+
+                }
+                else if (level == 1 && randPairOrImpair == 1 && rand % 2 != 0)
+                {
+                    randomValues.Add(rand);
+                    // Debug.Log(rand);
+                }
+                else if(level != 1)
+                {
+                    randomValues.Add(rand); // do it normally
+                }
+
                 i++;
+
             }
 
             lastRandomNumber = rand;
+
         }
     }
 
+    // Generate the prefabs
     void GenerateRamp(int position)
-    {
+    { 
+
         for (int i = 0; i < position; i++)
         {
             RampBlock ramp = Instantiate(allTheRamps[randomValues[i]]);
-
-            // ramp.transform.SetParent(transform, false);
-
             currentRamps.Add(ramp);
         }
     }

@@ -579,7 +579,7 @@ MonoBehaviour:
   rotationXPoint: 0.05
   rotationZPoint: 0.1
   impulseLevel: 1
-  gameDifficulty: 3
+  gameDifficulty: 0
   startGame: 0
   resetPositionUser: 0
 --- !u!1001 &1326959628

@@ -21,7 +21,7 @@ public class ResetVariables : MonoBehaviour
         PlayerJump.sharedInstance.jump = false;
 
         // Rotation point
-        RotationPoint.sharedInstance.speedAceleration = 1.3f;
+        RotationPoint.sharedInstance.rotationSpeedAceleration = 1.3f;
 
         // Camera triggers
         CameraTriggerRotations.sharedInstance.cameraRotationX = false;

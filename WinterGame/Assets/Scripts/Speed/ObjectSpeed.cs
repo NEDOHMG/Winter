@@ -58,7 +58,7 @@ public class ObjectSpeed : MonoBehaviour
     {
         if (triggerSpeed.stop)
         {
-            Debug.Log("The game is stoped");
+            // Debug.Log("The game is stoped");
             rb.isKinematic = true; // Stop all the movement of the user
         }
 
@@ -99,7 +99,7 @@ public class ObjectSpeed : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PlayerSkiController.sharedInstance.startGame)
+        if (PlayerSkiController.sharedInstance.startGame || PlayerSkiController.sharedInstance.resetPositionUser == true)
         {
             // Debug.Log("Start the game is false");
             rb.isKinematic = false; // Check if we are in the game

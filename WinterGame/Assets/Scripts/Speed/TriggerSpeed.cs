@@ -17,10 +17,6 @@ public class TriggerSpeed : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
-        //if (collider.gameObject.CompareTag("Goal"))
-        //{
-        //    GameManager.sharedInstance.GameOver();
-        //}
 
         // This is the normal state of the game before enter in any trigger
         if (collider.gameObject.CompareTag("PointOne") && pointOneTriggered == false && pointTwoTriggered == false && pointThreeTriggered == false && goal == false)
@@ -58,7 +54,7 @@ public class TriggerSpeed : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Goal"))
         {
-            Debug.Log("Stop");
+            // Debug.Log("Stop");
             stop = true;
             GameManager.sharedInstance.GameOver();
         }
