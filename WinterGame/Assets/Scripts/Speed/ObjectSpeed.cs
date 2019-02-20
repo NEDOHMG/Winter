@@ -101,7 +101,7 @@ public class ObjectSpeed : MonoBehaviour
     {
         if (PlayerSkiController.sharedInstance.startGame || PlayerSkiController.sharedInstance.resetPositionUser == true)
         {
-            // Debug.Log("Start the game is false");
+            // agregar aqui el reset del reloj
             rb.isKinematic = false; // Check if we are in the game
         }
         // We are in the game

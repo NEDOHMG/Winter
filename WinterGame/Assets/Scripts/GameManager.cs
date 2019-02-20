@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public static GameManager sharedInstance;
 
     public Canvas menuCanvas;
-    // public Canvas gameCanvas;
+    public Canvas gameCanvas;
     public Canvas gameOverCanvas;
 
     void Awake()
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         currentGameState = GameState.menu;
         menuCanvas.enabled = true;
-        //gameCanvas.enabled = false;
+        gameCanvas.enabled = false;
         gameOverCanvas.enabled = false;
     }
 
@@ -92,21 +92,21 @@ public class GameManager : MonoBehaviour
         {
             // The logic of the principal menu
             menuCanvas.enabled = true;
-            //gameCanvas.enabled = false;
+            gameCanvas.enabled = false;
             gameOverCanvas.enabled = false;
         }
         else if (newGameState == GameState.inTheGame)
         {
             // This is the current scene or level of the game
             menuCanvas.enabled = false;
-            //gameCanvas.enabled = true;
+            gameCanvas.enabled = true;
             gameOverCanvas.enabled = false;
         }
         else if (newGameState == GameState.gameOver)
         {
             // Gameover
             menuCanvas.enabled = false;
-            //gameCanvas.enabled = false;
+            gameCanvas.enabled = false;
             gameOverCanvas.enabled = true;
         }
 
