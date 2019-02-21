@@ -55,9 +55,19 @@ public class TriggerSpeed : MonoBehaviour
         if (collider.gameObject.CompareTag("Goal"))
         {
             // Debug.Log("Stop");
-            stop = true;
+            stop = true; // Stop all the movement of the user
             GameManager.sharedInstance.GameOver();
         }
+    }
+
+    public void ResetTriggerSpeedVariables()
+    {
+        pointOneTriggered = false;
+        pointTwoTriggered = false;
+        pointThreeTriggered = false;
+        goal = false;
+        // stop = false; <-- dont use this
+        speedAcelerator = false;
     }
 
 }

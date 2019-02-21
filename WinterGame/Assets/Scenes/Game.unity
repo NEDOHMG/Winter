@@ -1063,7 +1063,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1706196822}
   - component: {fileID: 1706196821}
-  - component: {fileID: 1706196823}
   m_Layer: 0
   m_Name: ResetVariables
   m_TagString: Untagged
@@ -1097,18 +1096,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1706196823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1706196820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76df64f3ced88443af6ba8b7843f5eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1954294984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1128,12 @@ MonoBehaviour:
   textGameMenuTimer: {fileID: 1636247001}
   textGameOverTimer: {fileID: 807823613}
   stopTheGameTimer: 0
+  showTheFinalTime: 0
+  startTime: 0
+  minutes: 
+  seconds: 
+  showMinutes: 
+  showSeconds: 
 --- !u!4 &1954294986
 Transform:
   m_ObjectHideFlags: 0
@@ -1186,6 +1179,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2711605395202764530, guid: f724b62399424bd4483ed7a929e1173c,
+        type: 3}
+      propertyPath: m_Name
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754441263480042752, guid: f724b62399424bd4483ed7a929e1173c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4472110674713150404, guid: f724b62399424bd4483ed7a929e1173c,
         type: 3}
       propertyPath: m_Text
@@ -1235,16 +1238,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754441263480042752, guid: f724b62399424bd4483ed7a929e1173c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2711605395202764530, guid: f724b62399424bd4483ed7a929e1173c,
-        type: 3}
-      propertyPath: m_Name
-      value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 2711605395202764529, guid: f724b62399424bd4483ed7a929e1173c,
         type: 3}

@@ -43,4 +43,12 @@ public class CameraTriggerRotations : MonoBehaviour
             cameraRotationY = false;
         }
     }
+
+    public void ResetCameraTriggerRotations()
+    {
+        cameraRotationX = false;
+        cameraRotationY = false;
+        cameraRotationZ = false;
+        cameraFieldView = false;
+    }
 }

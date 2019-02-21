@@ -14,6 +14,17 @@ public class ResetLevel : MonoBehaviour
 
     public void ResetThePlayersMethods()
     {
+        // Ramp generator
+        RampGenerator.sharedInstance.levelOne = false;
+        // Player jump
+        PlayerJump.sharedInstance.ResetJumpVariables();
+        // Rotation point
+        RotationPoint.sharedInstance.rotationSpeedAceleration = 1.3f;
+        // Camera triggers
+        CameraTriggerRotations.sharedInstance.ResetCameraTriggerRotations();
+        // Trigger speed
+        TriggerSpeed.sharedInstance.ResetTriggerSpeedVariables();
+
         StartCoroutine(ExecuteAfterTime(1));
         StartCoroutine(WaitForPlayer(3));
     }
@@ -21,18 +32,18 @@ public class ResetLevel : MonoBehaviour
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-
-        // Code to execute after the delay
         ObjectSpeed.sharedInstance.ResetPositionSpeedUser();
         CameraController.sharedInstance.ResetCamera();
+        TimerSkill.sharedInstance.ResetTimerVariables();
     }
 
-    public IEnumerator WaitForPlayer(float time)
+    IEnumerator WaitForPlayer(float time)
     {
         yield return new WaitForSeconds(time);
-        TriggerSpeed.sharedInstance.stop = false; // This is a probe
+        TriggerSpeed.sharedInstance.stop = false;
         PlayerSkiController.sharedInstance.startGame = true;
         ObjectSpeed.sharedInstance.rb.isKinematic = false;
+        TimerSkill.sharedInstance.StartTimer();
     }
 
 }

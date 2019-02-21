@@ -11,13 +11,13 @@ public class TimerSkill : MonoBehaviour
     public static TimerSkill sharedInstance;
 
     [HideInInspector]
-    public bool stopTheGameTimer = true,  showTheFinalTime = false;
+    public bool stopTheGameTimer = true, showTheFinalTime = false;
 
     [HideInInspector]
     public float startTime = 0.0f;
 
     [HideInInspector]
-    public string minutes = "", seconds = "",  showMinutes = "", showSeconds = "";
+    public string minutes = "", seconds = "", showMinutes = "", showSeconds = "";
 
     void Awake()
     {
@@ -69,6 +69,18 @@ public class TimerSkill : MonoBehaviour
     {
         stopTheGameTimer = true;
         showTheFinalTime = true;
+    }
+
+    public void ResetTimerVariables()
+    {
+        stopTheGameTimer = true;
+        showTheFinalTime = false;
+        startTime = 0.0f;
+        minutes = "";
+        seconds = "";
+        showMinutes = "";
+        showSeconds = "";
+        textGameMenuTimer.text = "00:00";
     }
 
 }

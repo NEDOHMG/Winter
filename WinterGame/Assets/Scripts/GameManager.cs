@@ -53,14 +53,13 @@ public class GameManager : MonoBehaviour
         
         if (PlayerSkiController.sharedInstance.resetPositionUser)
         {
-            // Debug.Log("The game was reseted");
-            ResetVariables.sharedInstance.ResetTheGameVariables();
-            // Debug.Log("The game variables were reseted");
-            ResetLevel.sharedInstance.ResetThePlayersMethods();
-            // Debug.Log("The methods variables were reseted");
-            RampGenerator.sharedInstance.SpawnRamps();
-            PlayerSkiController.sharedInstance.resetPositionUser = false;
             ChangeGameState(GameState.inTheGame);
+            // Spawn again the ramps randomly
+            RampGenerator.sharedInstance.SpawnRamps();
+            // Reset all the variables of the game
+            ResetLevel.sharedInstance.ResetThePlayersMethods();
+            // Turn off again
+            PlayerSkiController.sharedInstance.resetPositionUser = false;
         }
         else
         {

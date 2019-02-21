@@ -47,11 +47,12 @@ public class PlayerJump : MonoBehaviour
 
     float ChooseSpeed(ImpulseLevel _impulseLevel)
     {
-   
-        if(_impulseLevel == ImpulseLevel.one)
+
+        if (_impulseLevel == ImpulseLevel.one)
         {
             _impulseJump = 0.23f;
-        } else if (_impulseLevel == ImpulseLevel.two)
+        }
+        else if (_impulseLevel == ImpulseLevel.two)
         {
             _impulseJump = 0.26f;
         }
@@ -82,7 +83,7 @@ public class PlayerJump : MonoBehaviour
         {
             //Debug.Log("Enter");
             jump = true;
-            if(firstJump)
+            if (firstJump)
             {
                 firstJump = false;
             }
@@ -95,5 +96,11 @@ public class PlayerJump : MonoBehaviour
         {
             jump = false;
         }
+    }
+
+    public void ResetJumpVariables()
+    {
+        firstJump = true;
+        jump = false;
     }
 }

@@ -17,10 +17,6 @@ public class ObjectSpeed : MonoBehaviour
     //public float speedAdjustmentAceleration = 0.4f;
 
     Vector3 speed;
-    Vector3 desVec;
-
-    //[HideInInspector]
-    //public bool firstTimePlay = true;
 
     public static ObjectSpeed sharedInstance;
 
@@ -49,7 +45,6 @@ public class ObjectSpeed : MonoBehaviour
 
     public void ResetPositionSpeedUser()
     {
-        // rb.isKinematic = true;
         transform.position = originalPosition;
         speed = new Vector3(x, y, z);
     }

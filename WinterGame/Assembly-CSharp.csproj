@@ -58,11 +58,10 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Jump\PlayerJump.cs" />
      <Compile Include="Assets\Scripts\Mountains\MountainsGenerator.cs" />
-     <Compile Include="Assets\Scripts\PlayerSkiController.cs" />
+     <Compile Include="Assets\Scripts\PlayerSkill\PlayerSkiController.cs" />
      <Compile Include="Assets\Scripts\Ramps\RampBlock.cs" />
      <Compile Include="Assets\Scripts\Ramps\RampGenerator.cs" />
      <Compile Include="Assets\Scripts\ResetLevel.cs" />
-     <Compile Include="Assets\Scripts\ResetVariables.cs" />
      <Compile Include="Assets\Scripts\Rotations\CameraTriggerRotations.cs" />
      <Compile Include="Assets\Scripts\Rotations\RotationPoint.cs" />
      <Compile Include="Assets\Scripts\Speed\ObjectSpeed.cs" />

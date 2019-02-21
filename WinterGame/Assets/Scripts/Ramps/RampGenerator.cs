@@ -127,4 +127,5 @@ public class RampGenerator : MonoBehaviour
         }
         randomValues = new List<int>();
     }
+
 }
