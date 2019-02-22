@@ -81,7 +81,6 @@ public class NativeAvatar : MonoBehaviour
 
     }
 
-
     void Update()
     {
         // Track the first user
@@ -103,8 +102,8 @@ public class NativeAvatar : MonoBehaviour
                     CreatedJoint[q].transform.localPosition = newPosition;
 
                     // For the rotation
-                    // Quaternion jointOrient = ((CalibrationInfo.SensorOrientation) * joint.ToQuaternion());
-                    //Quaternion jointOrient = Quaternion.Inverse((CalibrationInfo.SensorOrientation) * joint.ToQuaternion());
+                    //Quaternion jointOrient = ((CalibrationInfo.SensorOrientation) * joint.ToQuaternion());
+                    // Quaternion jointOrient = Quaternion.Inverse((CalibrationInfo.SensorOrientation) * joint.ToQuaternion());
                     //CreatedJoint[q].transform.localRotation = jointOrient;
                 }
             }

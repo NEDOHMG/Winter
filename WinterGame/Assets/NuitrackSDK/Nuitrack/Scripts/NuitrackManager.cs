@@ -89,7 +89,6 @@ public class NuitrackManager : MonoBehaviour
                     container.name = "NuitrackManager";
                     instance = container.AddComponent<NuitrackManager>();
                 }
-                
                 DontDestroyOnLoad(instance);
             }
             return instance;
@@ -110,7 +109,7 @@ public class NuitrackManager : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         Application.targetFrameRate = 60;
-        Application.runInBackground = runInBackground;
+
         //	Debug.Log ("NuitrackStart");
 
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -186,8 +185,7 @@ public class NuitrackManager : MonoBehaviour
 
     void NuitrackInit()
     {
-        //Debug.Log("Application.runInBackground " + Application.runInBackground);
-        //CloseUserGen(); //just in case
+        //    CloseUserGen(); //just in case
 #if UNITY_IOS
 		if (wifiConnect == WifiConnect.VicoVR)
 		{
@@ -220,7 +218,7 @@ public class NuitrackManager : MonoBehaviour
         else
             nuitrack.Nuitrack.Init();
 #endif
-        // Debug.Log("Init OK");
+        Debug.Log("Init OK");
 
         depthSensor = nuitrack.DepthSensor.Create();
 
@@ -235,7 +233,7 @@ public class NuitrackManager : MonoBehaviour
         handTracker = nuitrack.HandTracker.Create();
 
         nuitrack.Nuitrack.Run();
-        // Debug.Log("Run OK");
+        Debug.Log("Run OK");
 
         ChangeModulsState(
             skeletonTrackerModuleOn,
@@ -309,7 +307,6 @@ public class NuitrackManager : MonoBehaviour
 
     void OnApplicationPause(bool pauseStatus)
     {
-        //Debug.Log("pauseStatus " + pauseStatus);
         if (pauseStatus)
         {
             ChangeModulsState(
@@ -321,7 +318,6 @@ public class NuitrackManager : MonoBehaviour
                 false
             );
             pauseState = true;
-            CloseUserGen();
         }
         else
         {
@@ -333,8 +329,6 @@ public class NuitrackManager : MonoBehaviour
                 gesturesRecognizerModuleOn,
                 userTrackerModuleOn
             );
-            if(pauseState)
-                NuitrackInit();
             pauseState = false;
         }
     }
@@ -414,7 +408,6 @@ public class NuitrackManager : MonoBehaviour
         userFrame = null;
         skeletonData = null;
         handTrackerData = null;
-        // Debug.Log("CloseUserGen");
     }
 
     void OnDestroy()

@@ -167,6 +167,7 @@
      <Compile Include="Assets\Scripts\Speed\TriggerSpeed.cs" />
      <Compile Include="Assets\Scripts\Timer\TimerSkill.cs" />
      <Compile Include="Assets\Scripts\Timer\TimerTrigger.cs" />
+     <Compile Include="Assets\Scripts\User\UserOffSet.cs" />
      <None Include="Assets\Models\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Models\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\NuitrackSDK\Platform Changer\Manifests\GearVR\AndroidManifest_GearVR.xml" />
