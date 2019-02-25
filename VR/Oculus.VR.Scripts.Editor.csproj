@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4381CA6A-ED12-9183-17F6-25FE27FE9A40}</ProjectGuid>
+    <ProjectGuid>{38F1199A-8FEA-3E51-2230-76D8E56EDD9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Oculus.VR.Scripts.Editor</AssemblyName>
@@ -295,22 +295,22 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="nuitrack.net">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Assets/NuitrackSDK/Nuitrack/NuitrackAssembly/nuitrack.net.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGameVR/Assets/NuitrackSDK/Nuitrack/NuitrackAssembly/nuitrack.net.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGameVR/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGameVR/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGameVR/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGameVR/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
- <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGame/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/avega/Documents/Developer/Unity/WinterGameVR/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
@@ -342,9 +342,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Oculus.VR.csproj">
-      <Project>{103A3DE5-703D-8F20-923C-4638F8177423}</Project>      <Name>Oculus.VR</Name>    </ProjectReference>
+      <Project>{2DA5B533-B0ED-A69B-E205-FAC39154BA93}</Project>      <Name>Oculus.VR</Name>    </ProjectReference>
     <ProjectReference Include="Oculus.VR.Editor.csproj">
-      <Project>{9B626A8E-CF62-1E24-6F2A-F288220DE4EC}</Project>      <Name>Oculus.VR.Editor</Name>    </ProjectReference>
+      <Project>{6386F828-EB93-C836-FA5E-2EB223CFD2A8}</Project>      <Name>Oculus.VR.Editor</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

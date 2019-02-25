@@ -7,10 +7,7 @@ public class UserOffSet : MonoBehaviour
 
     // The target of the user 
     public GameObject target;
-    public float yOffset = 0.35f;
-
-    // [HideInInspector]
-    public float xOffset = 0.0f, zOffset = 0.35f;
+    public float xOffset = -0.2f, yOffset = -0.2f, zOffset = -0.7f;
 
     private Vector3 totalOffSet;
 
